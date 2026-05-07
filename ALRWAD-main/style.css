@@ -250,7 +250,6 @@ body, html {
     
     /* شعار في القائمة المتنقلة */
     .nav-links::before {
-        content: 'كفاءات العالم';
         color: var(--secondary-color);
         font-size: 1.4rem;
         font-weight: 700;
@@ -382,6 +381,7 @@ body.menu-open {
     .hero-section {
         background-attachment: scroll;
         min-height: 90vh;
+        padding-top: 0;
     }
 }
 
@@ -1912,3 +1912,70 @@ body.recruitment-page .back-to-home .btn-outline:hover {
     box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
 }
 
+/* ===== إصلاح ظهور زر الهامبرجر فوق الخلفية الزجاجية ===== */
+.menu-toggle {
+    display: flex !important;
+    background: #3498db !important;
+    border: none !important;
+    color: #ffffff !important;
+    font-size: 1.4rem;
+    cursor: pointer;
+    z-index: 1102;
+    padding: 10px;
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    /* إزالة أي خلفية شفافة */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+/* لون الأيقونة */
+.menu-toggle i,
+.menu-toggle .fas,
+.menu-toggle .fa-bars,
+.menu-toggle .fa-times {
+    color: #ffffff !important;
+    font-size: 1.5rem;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* تأثير hover */
+.menu-toggle:hover {
+    background: #2980b9 !important;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* عند فتح القائمة - لون أحمر */
+.menu-toggle.active {
+    background: #e74c3c !important;
+}
+
+.menu-toggle.active i {
+    color: #ffffff !important;
+}
+
+/* على الهواتف */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex !important;
+        background: #3498db !important;
+        /* صلبة غير شفافة */
+        opacity: 1 !important;
+    }
+}
+
+/* على الشاشات الكبيرة - مخفي */
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none !important;
+    }
+}
