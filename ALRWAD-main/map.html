@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>خريطة موقع مكتب أعمال الرواد للاستقدامم للأستقدام - الرياض</title>
+    <meta name="description" content="خريطة موقع أعمال الروادللأستقدام في الرياض، المملكة العربية السعودية. العنوان: GGDB7677، 2618، الخرج.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Changa:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* تنسيقات إضافية خاصة بصفحة الخريطة */
+        .map-hero-section {
+            position: relative;
+            height: 60vh;
+            width: 100%;
+            background: url('a.png') 
+                        no-repeat center center/cover;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px; /* مسافة للـ navbar الثابت */
+        }
+
+        @media (min-width: 768px) {
+            .map-hero-section {
+                padding-top: 100px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .map-hero-section {
+                background-attachment: scroll;
+                height: 50vh;
+            }
+        }
+
+        .map-hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-family: 'Changa', sans-serif;
+        }
+
+        .map-hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.8;
+            max-width: 800px;
+            margin-right: auto;
+            margin-left: auto;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            font-family: 'Amiri', serif;
+        }
+
+        /* قسم الخريطة */
+        .map-container-section {
+            padding: 80px 8%;
+            background: rgba(255, 255, 255, 0.17);
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Changa', sans-serif;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to left, #3498db, #25d366);
+            border-radius: 2px;
+        }
+
+        .map-description {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 40px;
+            text-align: center;
+            font-family: 'Amiri', serif;
+            max-width: 800px;
+            margin-right: auto;
+            margin-left: auto;
+            line-height: 1.8;
+        }
+
+        .map-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            margin: 30px 0 40px;
+            border: 3px solid #eaeaea;
+        }
+
+        #customMap {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* عناصر التحكم في الخريطة */
+        .map-controls {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .map-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Tajawal', sans-serif;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .map-btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(41, 128, 185, 0.4);
+        }
+
+        .map-btn.get-directions {
+            background: #25d366;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .map-btn.get-directions:hover {
+            background: #1da851;
+            box-shadow: 0 8px 20px rgba(29, 168, 81, 0.4);
+        }
+
+        /* دبوس مخصص */
+        .custom-marker {
+            position: absolute;
+            width: 60px;
+            height: 80px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -100%);
+            z-index: 100;
+            /* animation: bounce 2s infinite; */
+            pointer-events: none;
+        }
+
+        .marker-pin {
+            width: 35px;
+            height: 35px;
+            border-radius: 50% 50% 50% 0;
+            background: #3498db;
+            position: absolute;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 0;
+            margin-left: -17.5px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+        }
+
+        .marker-pin::after {
+            content: '';
+            width: 27px;
+            height: 27px;
+            margin: 4px;
+            background: white;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .marker-content {
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            white-space: nowrap;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            font-family: 'Tajawal', sans-serif;
+            font-size: 14px;
+            color: #2c3e50;
+            font-weight: bold;
+            border: 2px solid #3498db;
+            min-width: 180px;
+            text-align: center;
+        }
+
+        .marker-content::after {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-bottom: 8px solid #3498db;
+        }
+
+        /* @keyframes bounce {
+            0%, 100% { transform: translate(-50%, -100%); }
+            50% { transform: translate(-50%, -108%); }
+        } */
+
+        /* معلومات الاتصال */
+        .contact-info-section {
+            padding: 60px 8%;
+            background: #f8f9fa;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            border-top: 4px solid #3498db;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.5rem;
+        }
+
+        .contact-card p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .contact-card a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #25d366;
+            text-decoration: underline;
+        }
+
+        /* ساعات العمل */
+        .hours-section {
+            padding: 60px 8%;
+            background: white;
+        }
+
+        .hours-table {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .day-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .day-row:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: bold;
+            color: #2c3e50;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        .time {
+            color: #3498db;
+            font-weight: bold;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .hours-note {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+            font-family: 'Amiri', serif;
+        }
+
+        /* زر العودة للرئيسية */
+        .back-to-home {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .back-to-home .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            border: 2px solid white; /* تغيير الحد إلى أبيض */
+            font-family: 'Tajawal', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-home .btn-outline:hover {
+            background: white; /* خلفية بيضاء عند التمرير */
+            color: #25d366; /* لون أخضر عند التمرير */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+        }
+
+        /* تحسينات للجوال */
+        @media (max-width: 1024px) {
+            .map-hero-content h1 {
+                font-size: 2.8rem;
+            }
+            
+            .map-hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.3rem;
+            }
+            
+            .map-wrapper {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .map-hero-section {
+                height: 50vh;
+            }
+            
+            .map-hero-content h1 {
+                font-size: 2.2rem;
+                padding: 0 10px;
+            }
+            
+            .map-hero-content p {
+                font-size: 1.1rem;
+                padding: 0 15px;
+            }
+            
+            .map-container-section,
+            .contact-info-section,
+            .hours-section {
+                padding: 40px 5%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .map-wrapper {
+                height: 350px;
+            }
+            
+            .map-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .map-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .day-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .map-hero-content h1 {
+                font-size: 1.9rem;
+            }
+            
+            .map-hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .map-wrapper {
+                height: 300px;
+            }
+            
+            .map-description {
+                font-size: 1.1rem;
+            }
+            
+            .marker-content {
+                min-width: 150px;
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+            
+            .contact-card {
+                padding: 20px;
+            }
+            
+            .contact-card h3 {
+                font-size: 1.3rem;
+            }
+            
+            .contact-card p {
+                font-size: 1rem;
+            }
+        }
+
+        /* تحميل سلس للصفحة */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .map-hero-content, .map-container-section, .contact-info-section, .hours-section {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        /* قسم التواصل */
+        .contact-cta-section {
+            padding: 80px 8%;
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .contact-cta-section .section-title {
+            color: white;
+        }
+
+        .contact-cta-section .section-title::after {
+            background: white;
+        }
+
+        .contact-cta-section .map-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+
+        .whatsapp-cta {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 40px auto;
+            max-width: 800px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .whatsapp-icon {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-icon i {
+            font-size: 40px;
+            color: white;
+        }
+
+        .whatsapp-info {
+            flex: 1;
+            text-align: right;
+        }
+
+        .whatsapp-info h3 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .whatsapp-info p {
+            color: #666;
+            font-size: 1.1rem;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .whatsapp-btn {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            border: none;
+            font-family: 'Tajawal', sans-serif;
+            white-space: nowrap;
+        }
+
+        .whatsapp-btn:hover {
+            background: linear-gradient(45deg, #128c7e, #25d366);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 25px;
+            border-radius: 15px;
+            width: 180px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-method i {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .contact-method h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .contact-method p {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        /* تحسينات للجوال لقسم التواصل */
+        @media (max-width: 768px) {
+            .contact-cta-section {
+                padding: 60px 5%;
+            }
+            
+            .whatsapp-cta {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            
+            .whatsapp-info {
+                text-align: center;
+            }
+            
+            .whatsapp-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .contact-methods {
+                gap: 20px;
+            }
+            
+            .contact-method {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .whatsapp-cta {
+                padding: 25px 15px;
+            }
+            
+            .whatsapp-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .whatsapp-icon i {
+                font-size: 35px;
+            }
+            
+            .whatsapp-btn {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+            
+            .contact-method {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logoo.png" alt="شعار أعمال الرواد" class="logo-image">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                أعمال الرواد<span> للاستقدام </span>
+            </a>
+        </div>
+        
+        <!-- زر الهامبرجر -->
+        <button class="menu-toggle" id="menuToggle" aria-label="فتح/إغلاق القائمة">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="map.html" class="active">خريطة الموقع</a></li>
+            <li><a href="countries.html">دول الاستقدام</a></li>
+            <li><a href="recruitment-request.html">طلب الاستقدام</a></li>
+            <!-- تم تصحيح الرقم هنا -->
+            <li><a href="https://api.whatsapp.com/send?phone=966571688955" target="_blank">تواصل معنا</a></li>
+        </ul>
+    </nav>
+    
+    <!-- طبقة التعتيم للقائمة المتنقلة -->
+    <div class="overlay-menu" id="overlayMenu"></div>
+
+    <!-- Hero Section -->
+    <div class="map-hero-section">
+        <div class="overlay"></div>
+        
+        <main class="map-hero-content">
+            <h1>موقع مكتبنا في الرياض</h1>
+            <p>يمكنكم زيارة مكتبنا للتعرف على خدماتنا مباشرةً. نحن هنا لخدمتكم وتقديم أفضل الحلول لاستقدام العمالة المنزلية المدربة.</p>
+        </main>
+    </div>
+
+    <!-- Map Section -->
+    <section class="map-container-section">
+        <div class="map-container">
+            <h2 class="section-title">خريطة الوصول إلى المكتب</h2>
+            <p class="map-description">استخدم الخريطة التفاعلية أدناه للوصول إلى مكتبنا في الرياض ، طريق الصحابة ، اليرموك الخريطة قابلة للتكبير والتصغير للحصول على تفاصيل أوضح للطرق والاتجاهات.</p>
+            
+            <div class="map-wrapper">
+                <!-- خريطة جوجل ماب المضمنة -->
+                <div id="customMap">
+                   <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.8827696714925!2d46.7871540259345!3d24.799467447697893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2efe34f6a746eb%3A0xa0a75a644e7134da!2z2YXZg9iq2Kgg2KPYudmF2KfZhCDYp9mE2LHZiNin2K8g2YTZhNij2LPYqtmC2K_Yp9mF!5e0!3m2!1sar!2s!4v1776890622569!5m2!1sar!2s"
+    width="100%"
+    height="100%"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+                    
+                    <!-- دبوس مخصص يظهر فوق الخريطة -->
+                
+                </div>
+                
+                <!-- عناصر التحكم في الخريطة -->
+                <div class="map-controls">
+                    <button class="map-btn zoom-in" aria-label="تكبير الخريطة">
+                        <i class="fas fa-search-plus"></i> تكبير الخريطة
+                    </button>
+                    <button class="map-btn zoom-out" aria-label="تصغير الخريطة">
+                        <i class="fas fa-search-minus"></i> تصغير الخريطة
+                    </button>
+                    <button class="map-btn reset-map" aria-label="إعادة تعيين الخريطة">
+                        <i class="fas fa-sync-alt"></i> إعادة تعيين
+                    </button>
+                    <button class="map-btn get-directions" aria-label="الحصول على اتجاهات للوصول إلى المكتب">
+                        <i class="fas fa-directions"></i> الحصول على اتجاهات
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <!-- قسم التواصل -->
+    <section class="contact-cta-section">
+        <div class="container">
+            <h2 class="section-title">تواصل معنا الآن</h2>
+            <p class="map-description">لديك استفسار أو ترغب في معرفة المزيد عن خدماتنا؟ تواصل معنا مباشرة عبر واتساب</p>
+            
+            <div class="whatsapp-cta">
+                <div class="whatsapp-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="whatsapp-info">
+                    <h3>تواصل عبر واتساب</h3>
+                    <p>نرد على استفساراتك خلال دقائق</p>
+                </div>
+                <!-- تم تصحيح الرقم هنا -->
+                <a href="https://api.whatsapp.com/send?phone=966571688955" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> تواصل معنا الآن
+                </a>
+            </div>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <i class="fas fa-clock"></i>
+                    <h4>سرعة الرد</h4>
+                    <p>نرد خلال 5 دقائق</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-headset"></i>
+                    <h4>دعم فني</h4>
+                    <p>استشارات مجانية</p>
+                </div>
+                <div class="contact-method">
+                    <i class="fas fa-comments"></i>
+                    <h4>محادثة مباشرة</h4>
+                    <p>بدون انتظار</p>
+                </div>
+            </div>
+            <div class="back-to-home">
+                <a href="index.html" class="btn-outline">
+                    <i class="fas fa-home"></i> العودة إلى الصفحة الرئيسية
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>مكتب أعمال الرواد للاستقدام</h3>
+                <p>شركة رائدة في مجال استقدام العمالة المنزلية المدربة في المملكة العربية السعودية.</p>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="map.html">خريطة الموقع</a></li>
+                    <!-- تم تصحيح الرقم هنا -->
+                    <li><a href="tel:+966571688955">اتصل بنا</a></li>
+                    <li><a href="countries.html">دول الاستقدام</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>معلومات الاتصال</h3>
+                <!-- تم تصحيح الرقم هنا -->
+                <p><i class="fas fa-phone"></i> +966 57 168 8955</p>
+                <p><i class="fas fa-envelope"></i> info@Rwad.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> طريق الصحابة، اليرموك، الرياض </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="current-year">2025</span> أعمال الروادللأستقدام. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="main.js"></script>
+    
+</body>
+</html>

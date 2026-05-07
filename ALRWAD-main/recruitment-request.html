@@ -1,0 +1,1618 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طلب الاستقدام | أعمال الروادللأستقدام</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&family=Amiri:wght@400;700&family=Cairo:wght@400;600;700&family=Changa:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="recruitment-page">
+    <!-- الهيدر المطابق لصفحة الدول -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logoo.png" alt="شعار أعمال الرواد" class="logo-image">
+            <a href="index.html" class="logo-text" style="color: inherit; text-decoration: none;">
+                أعمال الرواد<span> للاستقدام </span>
+            </a>
+        </div>
+        
+        <!-- زر الهامبرجر -->
+        <button class="menu-toggle" id="menuToggle" aria-label="فتح/إغلاق القائمة">
+            <i class="fas fa-bars" id="menuIcon"></i>
+        </button>
+        
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">الرئيسية</a></li>
+            <li><a href="map.html">خريطة الموقع</a></li>
+            <li><a href="countries.html">دول الاستقدام</a></li>
+            <li><a href="recruitment-request.html" class="active">طلب استقدام</a></li>
+            <!-- تم تصحيح الرقم هنا -->
+            <li><a href="https://api.whatsapp.com/send?phone=966571688955" target="_blank">تواصل معنا</a></li>
+        </ul>
+    </nav>
+    
+    <!-- طبقة التعتيم للقائمة المتنقلة -->
+    <div class="overlay-menu" id="overlayMenu"></div>
+
+    <!-- قسم البداية -->
+    <section class="recruitment-hero">
+        <div class="recruitment-hero-content">
+            <h1>طلب الاستقدام</h1>
+            <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">تصفح واختر من بين أفضل العمالة المنزلية المتاحة للاستقدام من مختلف الدول</p>
+        </div>
+    </section>
+
+    <!-- قسم الفلترة والبحث -->
+    <div class="container">
+        <section class="filter-section">
+            <h2 class="section-title"><i class="fas fa-filter"></i> بحث وفلترة العمالة</h2>
+            
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label for="search-name"><i class="fas fa-user"></i> الاسم / المهنة</label>
+                    <input type="text" id="search-name" placeholder="ابحث بالاسم أو المهنة">
+                </div>
+                
+                <div class="filter-group">
+                    <label for="filter-nationality"><i class="fas fa-globe"></i> الجنسية</label>
+                    <select id="filter-nationality">
+                        <option value="">جميع الجنسيات</option>
+                        <option value="فلبينية">فلبينية</option>
+                        <option value="هندية">هندية</option>
+                        <option value="بنغلاديشية">بنغلاديشية</option>
+                        <option value="سريلانكية">سريلانكية</option>
+                        <option value="إثيوبية">إثيوبية</option>
+                        <option value="كينية">كينية</option>
+                        <option value="أوغندية">أوغندية</option>
+                        <option value="بوروندية">بوروندية</option>
+                        <option value="باكستانية">باكستانية</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="filter-job"><i class="fas fa-briefcase"></i> نوع العمل</label>
+                    <select id="filter-job">
+                        <option value="">جميع المهن</option>
+                        <option value="عامل/عاملة منزلية">عامل/عاملة منزلية</option>
+                        <option value="سائق">سائق</option>
+                        <option value="طباخ">طباخ</option>
+                        <option value="ممرضة/ممرض">ممرضة/ممرض</option>
+                        <option value="مربية أطفال">مربية أطفال</option>
+                        <option value="حارس أمن">حارس أمن</option>
+                        <option value="عامل نظافة">عامل نظافة</option>
+                        <option value="مزارع">مزارع</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="filter-experience"><i class="fas fa-chart-line"></i> الخبرة (سنوات)</label>
+                    <select id="filter-experience">
+                        <option value="">جميع المستويات</option>
+                        <option value="0-2">أقل من سنتين</option>
+                        <option value="2-5">من 2 إلى 5 سنوات</option>
+                        <option value="5-10">من 5 إلى 10 سنوات</option>
+                        <option value="10+">أكثر من 10 سنوات</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="filter-actions">
+                <div>
+                    <button class="btn btn-primary" id="search-button">
+                        <i class="fas fa-search"></i> بحث
+                    </button>
+                    <button class="btn btn-secondary" id="reset-button">
+                        <i class="fas fa-redo"></i> إعادة تعيين
+                    </button>
+                </div>
+                
+                <div class="results-count">
+                    <span id="results-count">58</span> نتيجة متاحة
+                </div>
+            </div>
+        </section>
+
+        <!-- عناصر التحكم بالعرض -->
+        <div class="view-controls">
+            <div class="view-toggle">
+                <button class="view-btn" data-view="list" title="عرض القائمة">
+                    <i class="fas fa-list"></i>
+                </button>
+                <button class="view-btn active" data-view="grid" title="عرض الشبكة">
+                    <i class="fas fa-th-large"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- عرض العمالة -->
+        <div id="workers-container" class="workers-container workers-grid-view">
+            <!-- سيتم ملء هذا القسم بالعمالة عبر JavaScript -->
+        </div>
+
+        <!-- رسالة عدم وجود نتائج (مخفي افتراضيًا) -->
+        <div class="no-results" id="no-results" style="display: none;">
+            <i class="fas fa-search"></i>
+            <h3>لا توجد نتائج</h3>
+            <p>لم يتم العثور على عمالة تطابق معايير البحث. حاول تغيير خيارات الفلترة أو البحث.</p>
+        </div>
+
+        <!-- زر العودة للرئيسية -->
+        <div class="back-to-home">
+            <a href="index.html" class="btn-outline">
+                <i class="fas fa-home"></i> العودة إلى الصفحة الرئيسية
+            </a>
+        </div>
+    </div>
+
+    <!-- نافذة الرسالة -->
+    <div class="message-modal" id="messageModal">
+        <div class="message-content">
+            <i class="fab fa-whatsapp"></i>
+            <h3>جاري فتح واتساب</h3>
+            <p>سيتم فتح تطبيق واتساب مع رسالة جاهزة تحتوي على بيانات طلب الاستقدام كاملة. يرجى التأكد من تثبيت تطبيق واتساب على جهازك.</p>
+            <button class="btn btn-primary" id="closeMessage">حسناً</button>
+        </div>
+    </div>
+
+    <!-- الفوتر -->
+    <footer class="footer" role="contentinfo">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>أعمال الروادللاستقدام</h3>
+                <p>شركة رائدة في مجال استقدام العمالة المنزلية المدربة في المملكة العربية السعودية.</p>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="countries.html">دول الاستقدام</a></li>
+                    <li><a href="recruitment.html">طلب الاستقدام</a></li>
+                    <li><a href="map.html">خريطة الموقع</a></li>
+                    <!-- تم إضافة رابط اتصل بنا مع الرقم الصحيح -->
+                    <li><a href="tel:+966571688955">اتصل بنا</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>معلومات الاتصال</h3>
+                <!-- تم تصحيح الرقم هنا -->
+                <p><i class="fas fa-phone"></i> +966 57 168 8955</p>
+                <p><i class="fas fa-envelope"></i> info@Rwad.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> الرياض,الخرج</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="current-year">2025</span> أعمال الروادللأستقدام. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // بيانات العمالة المتاحة للاستقدام مع صور السيرة الذاتية
+        const workersData = [
+            {
+                id: 1,
+                name: "LORNA KAGWIRIA KANYI",
+                job: "سائق",
+                nationality: "كينية",
+                experience: "2",
+                age: 41,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/1.png",
+                phone: "+254",
+                skills: ["قيادة السيارات", "معرفة الطرق", "الالتزام بالمواعيد"],
+                passport: "AK0908801",
+                maritalStatus: "عزباء"
+            },
+            {
+                id: 2,
+                name: "SAKINA JAKILINE",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 43,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (1).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي البسيط", "العناية بالمسنين"],
+                passport: "A01019888",
+                maritalStatus: "عزباء (4 أطفال)"
+            },
+            {
+                id: 3,
+                name: "IRINE JEPKOSGEI",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 27,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (2).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "AK1258726",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 4,
+                name: "HELLEN KWAMBOKA NYAKUNDI",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 37,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (3).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالمسنين"],
+                passport: "AK0817397",
+                maritalStatus: "عزباء (3 أطفال)"
+            },
+            {
+                id: 5,
+                name: "SALOME WAITHIRA GACHUKI",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 41,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (4).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي", "الكي"],
+                passport: "BK181812",
+                maritalStatus: "عزباء"
+            },
+            {
+                id: 6,
+                name: "MARTHA BOCHERE",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 39,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (5).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "العناية بالأطفال", "الطهي البيتي"],
+                passport: "AK0487571",
+                maritalStatus: "عزباء (3 أطفال)"
+            },
+            {
+                id: 7,
+                name: "CHINYAVU BESADA GUNDA",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "0",
+                age: 31,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (6).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي البسيط", "العناية بالأطفال"],
+                passport: "BK395878",
+                maritalStatus: "عزباء (4 أطفال)"
+            },
+            {
+                id: 8,
+                name: "RIZIKI DAMA OMAR",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "0",
+                age: 30,
+                languages: ["العربية", "الإنجليزية", "السواحيلية"],
+                salary: 900,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (7).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي الحلال", "العناية بالأسرة"],
+                passport: "BK717805",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 9,
+                name: "SOPHIA KAVUTHA NYAMBU",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 26,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (8).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "AK0937854",
+                maritalStatus: "متزوجة (طفل واحد)"
+            },
+            {
+                id: 10,
+                name: "BRITNEBETH NANJALA WANJIRU",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 24,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (9).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي", "التنظيم"],
+                passport: "AK1291545",
+                maritalStatus: "عزباء"
+            },
+            {
+                id: 11,
+                name: "AGNES ATIENO",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 38,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (10).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "العناية بالمسنين", "الطهي"],
+                passport: "AK1034866",
+                maritalStatus: "عزباء (3 أطفال)"
+            },
+            {
+                id: 12,
+                name: "SALOME WAITHIRA GACHUKI",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 41,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (11).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي", "الكي"],
+                passport: "BK181812",
+                maritalStatus: "عزباء"
+            },
+            {
+                id: 13,
+                name: "DAMARIS AHONO MIRUYA",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 32,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (12).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "العناية بالأطفال", "الطهي"],
+                passport: "AK1018219",
+                maritalStatus: "عزباء (3 أطفال)"
+            },
+            {
+                id: 14,
+                name: "SHARON AOKO JUMA",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "0",
+                age: 23,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (13).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي البسيط", "التعلم السريع"],
+                passport: "BK393262",
+                maritalStatus: "عزباء"
+            },
+            {
+                id: 15,
+                name: "MWANASHA SAID MZARAMO",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 31,
+                languages: ["العربية", "الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (14).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "الطهي الحلال", "العناية بالأسرة"],
+                passport: "BK170642",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 16,
+                name: "MOUREEN MORAA NYAISU",
+                job: "عامل/عاملة منزلية",
+                nationality: "كينية",
+                experience: "2",
+                age: 30,
+                languages: ["الإنجليزية", "السواحيلية"],
+                salary: 1100,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (15).png",
+                phone: "+254",
+                skills: ["تنظيف المنزل", "العناية بالأطفال", "الطهي"],
+                passport: "BK188317",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 17,
+                name: "YEASMIN",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "2",
+                age: 38,
+                languages: ["البنجالية", "العربية"],
+                salary: 1200,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (16).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي البنجالي", "العناية بالأسرة"],
+                passport: "A19616127",
+                maritalStatus: "متزوجة"
+            },
+            {
+                id: 18,
+                name: "MST ASMA BEGUM",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "6",
+                age: 38,
+                languages: ["البنجالية", "العربية"],
+                salary: 1200,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (17).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "A18412145",
+                maritalStatus: "متزوجة"
+            },
+            {
+                id: 19,
+                name: "HONUFA",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "2",
+                age: 40,
+                languages: ["البنجالية", "العربية"],
+                salary: 1200,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (18).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالمسنين"],
+                passport: "A19744086",
+                maritalStatus: "متزوجة (طفل واحد)"
+            },
+            {
+                id: 20,
+                name: "MST SAFALI BEGUM",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 39,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (19).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي البسيط", "التعلم السريع"],
+                passport: "A20202945",
+                maritalStatus: "متزوجة"
+            },
+            {
+                id: 21,
+                name: "JHUMA AKTER",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 35,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (20).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية المنزلية"],
+                passport: "A05197196",
+                maritalStatus: "متزوجة"
+            },
+            {
+                id: 22,
+                name: "JENOK",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 30,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (21).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي البسيط", "العناية بالأطفال"],
+                passport: "A14426246",
+                maritalStatus: "متزوجة"
+            },
+            {
+                id: 23,
+                name: "FAHIMA AKTER",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 36,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (22).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأسرة"],
+                passport: "A20037149",
+                maritalStatus: "متزوجة"
+            },
+            {
+                id: 24,
+                name: "SHEFALI BEGUM",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "8",
+                age: 35,
+                languages: ["البنجالية", "العربية"],
+                salary: 1200,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (23).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "A18422784",
+                maritalStatus: "متزوجة (3 أطفال)"
+            },
+            {
+                id: 25,
+                name: "NILA AKTER",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "2",
+                age: 35,
+                languages: ["البنجالية", "العربية"],
+                salary: 1200,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (24).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "الكي"],
+                passport: "EK0479499",
+                maritalStatus: "عزباء"
+            },
+            {
+                id: 26,
+                name: "KOBITA AKTER",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 26,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (25).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي البسيط", "العناية بالأطفال"],
+                passport: "A20044964",
+                maritalStatus: "متزوجة"
+            },
+            {
+                id: 27,
+                name: "HOSNA AKTER",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 30,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (26).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "التنظيم"],
+                passport: "A19585507",
+                maritalStatus: "عزباء"
+            },
+            {
+                id: 28,
+                name: "MST ROSHIDA BEGUM",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "2",
+                age: 38,
+                languages: ["البنجالية", "العربية"],
+                salary: 1200,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (27).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالمسنين"],
+                passport: "A06144385",
+                maritalStatus: "متزوجة (3 أطفال)"
+            },
+            {
+                id: 29,
+                name: "MST ANWARA BEGUM",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "7",
+                age: 40,
+                languages: ["البنجالية", "العربية"],
+                salary: 1200,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (28).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "A17920031",
+                maritalStatus: "متزوجة (3 أطفال)"
+            },
+            {
+                id: 30,
+                name: "SHILPI",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 29,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (29).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي البسيط", "العناية بالأسرة"],
+                passport: "A15691411",
+                maritalStatus: "متزوجة"
+            },
+            {
+                id: 31,
+                name: "SHAHINUR",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 36,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (30).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "A15385935",
+                maritalStatus: "متزوجة (طفلان)"
+            },
+            {
+                id: 32,
+                name: "MST SAFARUN BEGUM",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 38,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (31).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالمسنين"],
+                passport: "A05023220",
+                maritalStatus: "متزوجة (3 أطفال)"
+            },
+            {
+                id: 33,
+                name: "MST LUKI BEGUM",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "10",
+                age: 38,
+                languages: ["البنجالية", "العربية"],
+                salary: 1200,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (32).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية الشاملة"],
+                passport: "A20554345",
+                maritalStatus: "مطلقة (طفل واحد)"
+            },
+            {
+                id: 34,
+                name: "SHAKILA",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 32,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (33).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "A15202114",
+                maritalStatus: "متزوجة (طفل واحد)"
+            },
+            {
+                id: 35,
+                name: "MST ASMA AKTER",
+                job: "عامل/عاملة منزلية",
+                nationality: "بنغلاديشية",
+                experience: "0",
+                age: 29,
+                languages: ["البنجالية"],
+                salary: 1000,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (34).png",
+                phone: "+880",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأسرة"],
+                passport: "A20513637",
+                maritalStatus: "متزوجة (طفلان)"
+            },
+            {
+                id: 36,
+                name: "GENEVIVE DUCAY SEVILLA",
+                job: "عامل/عاملة منزلية",
+                nationality: "فلبينية",
+                experience: "0",
+                age: 27,
+                languages: ["الإنجليزية", "التاغالوغية"],
+                salary: 1800,
+                religion: "كاثوليكية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (35).png",
+                phone: "+63",
+                skills: ["تنظيف المنزل", "العناية بالأطفال", "الطهي"],
+                passport: "P1074323D",
+                maritalStatus: "متزوجة (طفلان)"
+            },
+            {
+                id: 37,
+                name: "JOSEPHINE LOMIBAO CAMORONGAN",
+                job: "عامل/عاملة منزلية",
+                nationality: "فلبينية",
+                experience: "0",
+                age: 24,
+                languages: ["الإنجليزية", "التاغالوغية"],
+                salary: 1800,
+                religion: "كاثوليكية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (36).png",
+                phone: "+63",
+                skills: ["تنظيف المنزل", "الطهي", "التعلم السريع"],
+                passport: "P8915349C",
+                maritalStatus: "عزباء"
+            },
+            {
+                id: 38,
+                name: "BABYLYN SILVERIO",
+                job: "عامل/عاملة منزلية",
+                nationality: "فلبينية",
+                experience: "2",
+                age: 47,
+                languages: ["الإنجليزية", "التاغالوغية"],
+                salary: 2200,
+                religion: "كاثوليكية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (37).png",
+                phone: "+63",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالمسنين"],
+                passport: "P5292677C",
+                maritalStatus: "متزوجة (طفل واحد)"
+            },
+            {
+                id: 39,
+                name: "JENNIELYN YACAT ANTONIO",
+                job: "عامل/عاملة منزلية",
+                nationality: "فلبينية",
+                experience: "0",
+                age: 41,
+                languages: ["الإنجليزية", "التاغالوغية"],
+                salary: 1800,
+                religion: "كاثوليكية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (38).png",
+                phone: "+63",
+                skills: ["تنظيف المنزل", "العناية بالأطفال", "الطهي"],
+                passport: "P1110510D",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 40,
+                name: "SHIELA VILLANUEVA",
+                job: "عامل/عاملة منزلية",
+                nationality: "فلبينية",
+                experience: "0",
+                age: 34,
+                languages: ["الإنجليزية", "التاغالوغية"],
+                salary: 1800,
+                religion: "كاثوليكية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (39).png",
+                phone: "+63",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "P9337095C",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 41,
+                name: "MARIETTA MENDOZA ARRIO",
+                job: "عامل/عاملة منزلية",
+                nationality: "فلبينية",
+                experience: "2",
+                age: 47,
+                languages: ["الإنجليزية", "التاغالوغية"],
+                salary: 2200,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (40).png",
+                phone: "+63",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأسرة"],
+                passport: "P7718025A",
+                maritalStatus: "متزوجة (3 أطفال)"
+            },
+            {
+                id: 42,
+                name: "RAKMA KASIM ABDUA",
+                job: "عامل/عاملة منزلية",
+                nationality: "فلبينية",
+                experience: "0",
+                age: 29,
+                languages: ["العربية", "الإنجليزية", "التاغالوغية"],
+                salary: 1800,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (41).png",
+                phone: "+63",
+                skills: ["تنظيف المنزل", "الطهي الحلال", "العناية بالأسرة"],
+                passport: "P1069730D",
+                maritalStatus: "متزوجة (طفلان)"
+            },
+            {
+                id: 43,
+                name: "ASNALIA ALI AMPUAN",
+                job: "عامل/عاملة منزلية",
+                nationality: "فلبينية",
+                experience: "0",
+                age: 37,
+                languages: ["العربية", "الإنجليزية", "التاغالوغية"],
+                salary: 1800,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (42).png",
+                phone: "+63",
+                skills: ["تنظيف المنزل", "الطهي الحلال", "العناية بالأطفال"],
+                passport: "P9592842C",
+                maritalStatus: "عزباء (5 أطفال)"
+            },
+            {
+                id: 44,
+                name: "ELSA BEDREJO TAMAYO",
+                job: "عامل/عاملة منزلية",
+                nationality: "فلبينية",
+                experience: "0",
+                age: 35,
+                languages: ["الإنجليزية", "التاغالوغية"],
+                salary: 1800,
+                religion: "كاثوليكية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (43).png",
+                phone: "+63",
+                skills: ["تنظيف المنزل", "الطهي", "التنظيم"],
+                passport: "P8179983C",
+                maritalStatus: "عزباء (طفل واحد)"
+            },
+            {
+                id: 45,
+                name: "NANTAMBI JALIA",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 34,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (44).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي الحلال", "العناية بالأطفال"],
+                passport: "B00749042",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 46,
+                name: "NAMUDDU MARIAM",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "2",
+                age: 36,
+                languages: ["الإنجليزية", "العربية"],
+                salary: 1100,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (45).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي الحلال", "العناية بالأسرة"],
+                passport: "A00218368",
+                maritalStatus: "عزباء (4 أطفال)"
+            },
+            {
+                id: 47,
+                name: "NAKAFUMBE HAIRAT",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "1.5",
+                age: 30,
+                languages: ["الإنجليزية", "العربية"],
+                salary: 1100,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (46).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي الحلال", "العناية بالأطفال"],
+                passport: "A00039972",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 48,
+                name: "KYATEREKERA AISHA",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "2.5",
+                age: 24,
+                languages: ["الإنجليزية", "العربية"],
+                salary: 1100,
+                religion: "مسلمة",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (47).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي الحلال", "العناية بالأسرة"],
+                passport: "A00597041",
+                maritalStatus: "عزباء (طفل واحد)"
+            },
+            {
+                id: 49,
+                name: "NANTENGE ROVINSA ALIBA",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 41,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (48).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "B00442998",
+                maritalStatus: "عزباء (6 أطفال)"
+            },
+            {
+                id: 50,
+                name: "TUMUKUNDE RACHEAL",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 22,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (49).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي البسيط", "التعلم السريع"],
+                passport: "B00705171",
+                maritalStatus: "عزباء"
+            },
+            {
+                id: 51,
+                name: "NANNYONGA RESTY",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 26,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (50).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "العناية بالأطفال", "الطهي البسيط"],
+                passport: "B00753451",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 52,
+                name: "NALUWU TEDDY",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 26,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (51).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأسرة"],
+                passport: "B00580889",
+                maritalStatus: "عزباء (طفل واحد)"
+            },
+            {
+                id: 53,
+                name: "NALUMANSI DORAH",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0.5",
+                age: 24,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (52).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "A00884873",
+                maritalStatus: "عزباء (طفلان)"
+            },
+            {
+                id: 54,
+                name: "NABUNJE FERISTA",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 22,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (53).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي البسيط", "العناية بالأسرة"],
+                passport: "B00594277",
+                maritalStatus: "عزباء (طفل واحد)"
+            },
+            {
+                id: 55,
+                name: "NABIRYE JULIET",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 41,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (54).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "B00460225",
+                maritalStatus: "عزباء (6 أطفال)"
+            },
+            {
+                id: 56,
+                name: "NABIRYE JULIET",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 41,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (55).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأسرة"],
+                passport: "B00460225",
+                maritalStatus: "عزباء (6 أطفال)"
+            },
+            {
+                id: 57,
+                name: "MWAGALE TEDDY",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 26,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (56).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "العناية بالأطفال", "الطهي"],
+                passport: "B00748002",
+                maritalStatus: "عزباء (3 أطفال)"
+            },
+            {
+                id: 58,
+                name: "TUSHEMERIRWE HELLEN",
+                job: "عامل/عاملة منزلية",
+                nationality: "أوغندية",
+                experience: "0",
+                age: 32,
+                languages: ["الإنجليزية"],
+                salary: 900,
+                religion: "مسيحية",
+                status: "متاحة",
+                company: "مكتب أعمال الرواد للاستقدام",
+                address: "الرياض,الخرج",
+                cvImage: "img/cv/11 (57).png",
+                phone: "+256",
+                skills: ["تنظيف المنزل", "الطهي", "العناية بالأطفال"],
+                passport: "B00705558",
+                maritalStatus: "عزباء (طفلان)"
+            }
+        ];
+
+        // عناصر DOM
+        const workersContainer = document.getElementById('workers-container');
+        const viewButtons = document.querySelectorAll('.view-btn');
+        const searchButton = document.getElementById('search-button');
+        const resetButton = document.getElementById('reset-button');
+        const resultsCount = document.getElementById('results-count');
+        const messageModal = document.getElementById('messageModal');
+        const closeMessage = document.getElementById('closeMessage');
+        const noResults = document.getElementById('no-results');
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        const overlayMenu = document.getElementById('overlayMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        // المتغيرات
+        let currentView = 'grid';
+        let filteredData = [...workersData];
+
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            renderWorkers(filteredData);
+            setCurrentYear();
+            
+            // إضافة أحداث لأزرار التحكم بالعرض
+            viewButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const viewType = this.getAttribute('data-view');
+                    setActiveView(viewType);
+                });
+            });
+            
+            // حدث البحث
+            searchButton.addEventListener('click', filterWorkers);
+            
+            // حدث إعادة التعيين
+            resetButton.addEventListener('click', resetFilters);
+            
+            // حدث إغلاق نافذة الرسالة
+            closeMessage.addEventListener('click', function() {
+                messageModal.classList.remove('active');
+            });
+            
+            // فلترة تلقائية عند تغيير أي من الفلاتر
+            document.querySelectorAll('#search-name, #filter-nationality, #filter-job, #filter-experience').forEach(input => {
+                input.addEventListener('input', filterWorkers);
+            });
+            
+            // القائمة المتنقلة - مطابقة لصفحة الدول
+            menuToggle.addEventListener('click', toggleMenu);
+            overlayMenu.addEventListener('click', toggleMenu);
+            
+            // إغلاق القائمة عند النقر على رابط
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        });
+
+        // تعيين السنة الحالية في الفوتر
+        function setCurrentYear() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        }
+
+        // التحكم في القائمة المتنقلة - مطابق لصفحة الدول
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
+            overlayMenu.classList.toggle('active');
+            menuIcon.classList.toggle('fa-bars');
+            menuIcon.classList.toggle('fa-times');
+        }
+
+        function closeMenu() {
+            navLinks.classList.remove('active');
+            overlayMenu.classList.remove('active');
+            menuIcon.classList.remove('fa-times');
+            menuIcon.classList.add('fa-bars');
+        }
+
+        // تعيين العرض النشط
+        function setActiveView(viewType) {
+            currentView = viewType;
+            
+            // تحديث الأزرار النشطة
+            viewButtons.forEach(button => {
+                if (button.getAttribute('data-view') === viewType) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+            
+            // تحديث فئة العرض
+            workersContainer.className = `workers-container workers-${viewType}-view`;
+            
+            // إعادة عرض العمالة مع العرض الجديد
+            renderWorkers(filteredData);
+        }
+
+        // عرض العمالة
+        function renderWorkers(data) {
+            workersContainer.innerHTML = '';
+            
+            if (data.length === 0) {
+                noResults.style.display = 'block';
+                workersContainer.style.display = 'none';
+                resultsCount.textContent = '0';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            workersContainer.style.display = 'grid';
+            resultsCount.textContent = data.length;
+            
+            // إنشاء بطاقات العمالة
+            data.forEach(worker => {
+                const workerElement = document.createElement('div');
+                workerElement.className = 'worker-card';
+                
+                workerElement.innerHTML = `
+                    <div class="worker-header">
+                        <div class="worker-company">${worker.company}</div>
+                        <div class="worker-address">${worker.address}</div>
+                    </div>
+                    <div class="worker-content">
+                        <!-- حاوية صورة السيرة الذاتية (السيفي) -->
+                        <div class="cv-container">
+                            <div class="cv-inner-container">
+                                <img src="${worker.cvImage}" alt="السيرة الذاتية لـ ${worker.name}" class="cv-image" onerror="this.onerror=null; this.src='1.png';">
+                            </div>
+                            <div class="cv-scroll-hint">
+                                <i class="fas fa-arrow-down"></i> قم بالتمرير
+                            </div>
+                        </div>
+                        
+                        <div class="worker-details">
+                            <div class="worker-detail">
+                                <span class="detail-label">الاسم:</span>
+                                <span class="detail-value">${worker.name}</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">المهنة:</span>
+                                <span class="detail-value">${worker.job}</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">الجنسية:</span>
+                                <span class="detail-value">${worker.nationality}</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">الخبرة:</span>
+                                <span class="detail-value">${worker.experience} سنوات</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">العمر:</span>
+                                <span class="detail-value">${worker.age} سنة</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">الراتب المطلوب:</span>
+                                <span class="detail-value">${worker.salary} ريال/شهرياً</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">الديانة:</span>
+                                <span class="detail-value">${worker.religion}</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">الحالة الاجتماعية:</span>
+                                <span class="detail-value">${worker.maritalStatus}</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">اللغات:</span>
+                                <span class="detail-value">${worker.languages.join('، ')}</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">المهارات:</span>
+                                <span class="detail-value">${worker.skills.join('، ')}</span>
+                            </div>
+                            <div class="worker-detail">
+                                <span class="detail-label">رقم الجواز:</span>
+                                <span class="detail-value">${worker.passport}</span>
+                            </div>
+                        </div>
+                        <div class="worker-actions">
+                            <button class="btn-book" data-id="${worker.id}">
+                                <i class="fas fa-calendar-check"></i> حجز السيرة الذاتية
+                            </button>
+                            <button class="btn-whatsapp" data-id="${worker.id}">
+                                <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                workersContainer.appendChild(workerElement);
+                
+                // ضبط ارتفاع الصورة بعد تحميلها
+                const img = workerElement.querySelector('.cv-image');
+                img.onload = function() {
+                    // إذا كانت الصورة طويلة جداً، نضيف تلميح التمرير
+                    if (this.naturalHeight > 800) {
+                        const hint = workerElement.querySelector('.cv-scroll-hint');
+                        hint.style.display = 'block';
+                    }
+                };
+            });
+            
+            // إضافة أحداث لأزرار الحجز والواتساب
+            document.querySelectorAll('.btn-book').forEach(button => {
+                button.addEventListener('click', function() {
+                    const workerId = parseInt(this.getAttribute('data-id'));
+                    const worker = data.find(item => item.id === workerId);
+                    bookWorker(worker);
+                });
+            });
+            
+            document.querySelectorAll('.btn-whatsapp').forEach(button => {
+                button.addEventListener('click', function() {
+                    const workerId = parseInt(this.getAttribute('data-id'));
+                    const worker = data.find(item => item.id === workerId);
+                    contactViaWhatsApp(worker);
+                });
+            });
+        }
+
+        // فلترة العمالة
+        function filterWorkers() {
+            const nameSearch = document.getElementById('search-name').value.toLowerCase();
+            const nationalityFilter = document.getElementById('filter-nationality').value;
+            const jobFilter = document.getElementById('filter-job').value;
+            const experienceFilter = document.getElementById('filter-experience').value;
+            
+            filteredData = workersData.filter(worker => {
+                // فلترة بالاسم والمهنة
+                const nameMatch = !nameSearch || 
+                    worker.name.toLowerCase().includes(nameSearch) || 
+                    worker.job.toLowerCase().includes(nameSearch);
+                
+                // فلترة بالجنسية
+                const nationalityMatch = !nationalityFilter || worker.nationality === nationalityFilter;
+                
+                // فلترة بالمهنة
+                const jobMatch = !jobFilter || worker.job === jobFilter;
+                
+                // فلترة بالخبرة
+                let experienceMatch = true;
+                if (experienceFilter) {
+                    const exp = parseFloat(worker.experience);
+                    switch(experienceFilter) {
+                        case '0-2': experienceMatch = exp < 2; break;
+                        case '2-5': experienceMatch = exp >= 2 && exp <= 5; break;
+                        case '5-10': experienceMatch = exp >= 5 && exp <= 10; break;
+                        case '10+': experienceMatch = exp > 10; break;
+                    }
+                }
+                
+                return nameMatch && nationalityMatch && jobMatch && experienceMatch;
+            });
+            
+            renderWorkers(filteredData);
+        }
+
+        // إعادة تعيين الفلاتر
+        function resetFilters() {
+            document.getElementById('search-name').value = '';
+            document.getElementById('filter-nationality').value = '';
+            document.getElementById('filter-job').value = '';
+            document.getElementById('filter-experience').value = '';
+            
+            filteredData = [...workersData];
+            renderWorkers(filteredData);
+        }
+
+        // حجز السيرة الذاتية
+        function bookWorker(worker) {
+            // رسالة نصية جاهزة للواتساب
+            const message = `طلب حجز سيرة ذاتية للاستقدام\n\n` +
+                           `بيانات العامل/ة:\n` +
+                           `الاسم: ${worker.name}\n` +
+                           `المهنة: ${worker.job}\n` +
+                           `الجنسية: ${worker.nationality}\n` +
+                           `الخبرة: ${worker.experience} سنوات\n` +
+                           `العمر: ${worker.age} سنة\n` +
+                           `الراتب المطلوب: ${worker.salary} ريال/شهرياً\n` +
+                           `الديانة: ${worker.religion}\n` +
+                           `الحالة الاجتماعية: ${worker.maritalStatus}\n` +
+                           `رقم الجواز: ${worker.passport}\n` +
+                           `المهارات: ${worker.skills.join('، ')}\n\n` +
+                           `بيانات طلب الاستقدام:\n` +
+                           `اسم الشركة: ${worker.company}\n` +
+                           `عنوان الشركة: ${worker.address}\n\n` +
+                           `أرغب في حجز هذه السيرة الذاتية للاستقدام والمزيد من التفاصيل.`;
+            
+            // تم تصحيح الرقم هنا
+            const whatsappURL = `https://wa.me/966571688955?text=${encodeURIComponent(message)}`;
+            
+            // عرض نافذة التأكيد
+            messageModal.classList.add('active');
+            
+            // فتح واتساب بعد تأخير بسيط
+            setTimeout(() => {
+                window.open(whatsappURL, '_blank');
+            }, 1500);
+        }
+
+        // التواصل عبر واتساب مباشرة
+        function contactViaWhatsApp(worker) {
+            // رسالة نصية جاهزة للواتساب
+            const message = `مرحباً،\n\n` +
+                           `أرغب في التواصل معكم بشأن استقدام العامل/ة:\n` +
+                           `الاسم: ${worker.name}\n` +
+                           `المهنة: ${worker.job}\n` +
+                           `الجنسية: ${worker.nationality}\n` +
+                           `الراتب المطلوب: ${worker.salary} ريال/شهرياً\n\n` +
+                           `أرجو التواصل معي للتفاصيل.`;
+            
+            // تم تصحيح الرقم هنا
+            const whatsappURL = `https://wa.me/966571688955?text=${encodeURIComponent(message)}`;
+            
+            // فتح واتساب مباشرة
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
