@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+    <!-- الصفحة الرئيسية -->
+    <url>
+        <loc>https://alrwaad.vercel.app/</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- خريطة الموقع -->
+    <url>
+        <loc>https://alrwaad.vercel.app/map.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- دول الاستقدام -->
+    <url>
+        <loc>https://alrwaad.vercel.app/countries.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- طلب الاستقدام -->
+    <url>
+        <loc>https://alrwaad.vercel.app/recruitment-request.html</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- من نحن (مرساة داخل الصفحة) -->
+    <url>
+        <loc>https://alrwaad.vercel.app/#about</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- لماذا تختارنا (مرساة داخل الصفحة) -->
+    <url>
+        <loc>https://alrwaad.vercel.app/#why-choose-us</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- خطوات الاستقدام (مرساة داخل الصفحة) -->
+    <url>
+        <loc>https://alrwaad.vercel.app/#steps</loc>
+        <lastmod>2026-05-09</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>
