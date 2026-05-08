@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/Sitemap.xml",
+      "destination": "/Sitemap.xml"
+    }
+  ]
+}
