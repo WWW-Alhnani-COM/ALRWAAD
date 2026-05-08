@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <!-- الصفحة الرئيسية -->
     <url>
@@ -36,7 +33,7 @@
         <priority>0.8</priority>
     </url>
 
-    <!-- من نحن (مرساة داخل الصفحة) -->
+    <!-- من نحن -->
     <url>
         <loc>https://alrwaad.vercel.app/#about</loc>
         <lastmod>2026-05-09</lastmod>
@@ -44,7 +41,7 @@
         <priority>0.7</priority>
     </url>
 
-    <!-- لماذا تختارنا (مرساة داخل الصفحة) -->
+    <!-- لماذا تختارنا -->
     <url>
         <loc>https://alrwaad.vercel.app/#why-choose-us</loc>
         <lastmod>2026-05-09</lastmod>
@@ -52,7 +49,7 @@
         <priority>0.7</priority>
     </url>
 
-    <!-- خطوات الاستقدام (مرساة داخل الصفحة) -->
+    <!-- خطوات الاستقدام -->
     <url>
         <loc>https://alrwaad.vercel.app/#steps</loc>
         <lastmod>2026-05-09</lastmod>
