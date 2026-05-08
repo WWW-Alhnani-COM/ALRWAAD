@@ -604,26 +604,24 @@
             border-color: #3b9bc7;
         }
 
-      .why-image {
-    width: 130px;
-    height: 130px;
-    background: linear-gradient(135deg, #1a2a4f, #2a3a5f);
+.why-image {
+    width: 150px;
+    height: 150px;
+    background: transparent;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 20px;
-    padding: 5px;  /* تم التخفيض من 15px إلى 5px */
+    padding: 0;
 }
-
-     .why-image img {
+.why-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-
         .why-card:hover .why-image img {
             transform: scale(1.1);
         }
@@ -875,21 +873,18 @@
         font-size: 16px;
     }
 }
-          .why-image {
-    width: 90px;
-    height: 90px;
-    background: linear-gradient(135deg, #1a2a4f, #2a3a5f);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    padding: 15px;
-}
-            .why-image img {
-                width: 38px;
-                height: 38px;
-            }
+ .why-image {
+        width: 150px;
+        height: 150px;
+        background: transparent;
+        padding: 0;
+    }
+              .why-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
           
         
     </style>
