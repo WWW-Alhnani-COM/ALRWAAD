@@ -90,12 +90,11 @@
     
     <div class="overlay-menu" id="overlayMenu"></div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section مع سهم للأسفل -->
     <div class="hero-section" id="home">
         <div class="overlay"></div>
         
         <main class="hero-content">
-            <br><br><br><br><br>
             <h1>استقدام نخبة من <span class="highlight">العاملات والمدربات</span></h1>
             <p>نوفر لكم أفضل الكوادر المنزلية المختارة بعناية لتلبية احتياجات الأسرة السعودية، بجودة وموثوقية عالية.</p>
             
@@ -108,6 +107,13 @@
                 </a>
             </div>
         </main>
+
+        <!-- زر السهم للانتقال إلى قسم من نحن -->
+        <div class="scroll-down" id="scrollDownBtn">
+            <a href="#about" class="scroll-link">
+        <img src="angle-bottom-icon.svg" alt="السهم للأسفل" class="arrow-icon">
+            </a>
+        </div>
     </div>
 
     <!-- ================ قسم من نحن ================ -->
@@ -173,7 +179,6 @@
             </div>
 
             <div class="why-grid">
-                <!-- الميزة 1 - مرخصون -->
                 <div class="why-card">
                     <div class="why-image">
                         <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="مرخصون رسمياً" loading="lazy">
@@ -182,7 +187,6 @@
                     <p>نعمل بترخيص رسمي ومعتمدين من منصة مساند لضمان حقوقك وحقوق العاملات.</p>
                 </div>
 
-                <!-- الميزة 2 - عاملات مدربات -->
                 <div class="why-card">
                     <div class="why-image">
                         <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="عاملات مدربات" loading="lazy">
@@ -191,7 +195,6 @@
                     <p>جميع العاملات يخضعن لدورات تدريبية مكثفة قبل القدوم لضمان كفاءتهن.</p>
                 </div>
 
-                <!-- الميزة 3 - سرعة الإجراءات -->
                 <div class="why-card">
                     <div class="why-image">
                         <img src="https://cdn-icons-png.flaticon.com/512/2838/2838912.png" alt="سرعة في الإجراءات" loading="lazy">
@@ -200,7 +203,6 @@
                     <p>نضمن لك إنهاء إجراءات الاستقدام في أسرع وقت ممكن دون أي تأخير.</p>
                 </div>
 
-                <!-- الميزة 4 - ضمان شامل -->
                 <div class="why-card">
                     <div class="why-image">
                         <img src="https://cdn-icons-png.flaticon.com/512/599/599558.png" alt="ضمان شامل" loading="lazy">
@@ -209,7 +211,6 @@
                     <p>نقدم عقود استقدام واضحة مع ضمان الاستبدال أو الاسترجاع وفق الأنظمة.</p>
                 </div>
 
-                <!-- الميزة 5 - جنسيات متعددة -->
                 <div class="why-card">
                     <div class="why-image">
                         <img src="https://cdn-icons-png.flaticon.com/512/2905/2905715.png" alt="جنسيات متعددة" loading="lazy">
@@ -218,7 +219,6 @@
                     <p>نوفر عاملات من عدة جنسيات (الفلبين، إندونيسيا، كينيا، بنجلاديش، وغيرها).</p>
                 </div>
 
-                <!-- الميزة 6 - دعم 24 ساعة -->
                 <div class="why-card">
                     <div class="why-image">
                         <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="دعم على مدار الساعة" loading="lazy">
@@ -339,9 +339,209 @@
         </div>
     </footer>
 
-    <!-- CSS المعدل لقسم لماذا تختارنا - بالصور -->
+    <!-- CSS الشامل -->
     <style>
-        /* ========== قسم لماذا تختارنا - نسخة بالصور ========== */
+        /* ========== تخصيص قسم الهيرو مع السهم ========== */
+        .hero-section {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background-image: url('a.png');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+        }
+
+        .hero-section .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.65);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #f0f0f0;
+        }
+
+        /* ========== زر السهم المتجه للأسفل ========== */
+        .scroll-down {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-down a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(5px);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .scroll-down a i {
+            font-size: 20px;
+        }
+
+        .scroll-down a:hover {
+            background: #c7a23b;
+            transform: scale(1.1);
+            border-color: #c7a23b;
+        }
+
+        /* حركة النبض للسهم */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-15px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-8px);
+            }
+        }
+
+        /* ========== قسم من نحن ========== */
+        .about-modern {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+            direction: rtl;
+        }
+
+        .about-modern-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-tag {
+            display: inline-block;
+            font-size: 1rem;
+            color: #c7a23b;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .about-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a2a4f;
+            margin-bottom: 20px;
+        }
+
+        .title-highlight {
+            color: #c7a23b;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-lead {
+            font-size: 1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .about-stats-row {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-block {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #c7a23b;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .about-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1a2a4f;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .about-cta:hover {
+            background: #c7a23b;
+            transform: translateX(-5px);
+        }
+
+        .visual-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .visual-logo {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .visual-badge {
+            background: #1a2a4f;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: 0.85rem;
+        }
+
+        /* ========== قسم لماذا تختارنا ========== */
         .why-choose-us {
             padding: 80px 20px;
             background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
@@ -374,23 +574,6 @@
             margin-bottom: 15px;
         }
 
-        .why-title .title-highlight {
-            color: #c7a23b;
-            position: relative;
-            display: inline-block;
-        }
-
-        .why-title .title-highlight::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #c7a23b, #e6c46e);
-            border-radius: 3px;
-        }
-
         .why-subtitle {
             font-size: 1.1rem;
             color: #666;
@@ -421,7 +604,6 @@
             border-color: #c7a23b;
         }
 
-        /* استايل الصورة بدل الأيقونة */
         .why-image {
             width: 90px;
             height: 90px;
@@ -438,7 +620,7 @@
             width: 50px;
             height: 50px;
             object-fit: contain;
-            filter: brightness(0) invert(1); /* يجعل الصورة بيضاء لتتناسب مع الخلفية الزرقاء */
+            filter: brightness(0) invert(1);
             transition: transform 0.3s ease;
         }
 
@@ -478,15 +660,200 @@
             color: #c7a23b;
         }
 
-        .why-note span {
-            font-size: 0.9rem;
+        /* ========== قسم خطوات الاستقدام ========== */
+        .steps-section {
+            padding: 80px 20px;
+            background: #f0f4f8;
+            direction: rtl;
         }
 
+        .steps-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .steps-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .steps-tag {
+            display: inline-block;
+            font-size: 1rem;
+            color: #c7a23b;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .steps-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1a2a4f;
+            margin-bottom: 15px;
+        }
+
+        .steps-subtitle {
+            font-size: 1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .step-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .step-number-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #c7a23b, #e6c46e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .step-number-circle span {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1a2a4f;
+        }
+
+        .step-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #1a2a4f;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .steps-video-preview {
+            text-align: center;
+        }
+
+        .video-placeholder {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #1a2a4f;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-placeholder i {
+            font-size: 20px;
+            color: #c7a23b;
+        }
+
+        /* ========== الفوتر ========== */
+        .footer {
+            background: #0f1a2e;
+            color: white;
+            padding: 50px 20px 20px;
+            direction: rtl;
+        }
+
+        .footer-logos-header {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .logo-item img {
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .footer-divider {
+            border-color: rgba(255,255,255,0.1);
+            margin-bottom: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #c7a23b;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #888;
+        }
+
+        /* ========== استجابة للشاشات الصغيرة ========== */
         @media (max-width: 768px) {
-            .why-choose-us {
-                padding: 50px 15px;
+            .hero-section {
+                min-height: 70vh;
             }
-            .why-title {
+            .hero-content {
+                padding: 30px 15px;
+            }
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .about-modern-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .about-title, .why-title, .steps-title {
                 font-size: 1.8rem;
             }
             .why-grid {
@@ -504,10 +871,37 @@
                 width: 38px;
                 height: 38px;
             }
+            .scroll-down {
+                bottom: 15px;
+            }
+            .scroll-down a {
+                width: 35px;
+                height: 35px;
+            }
+            .scroll-down a i {
+                font-size: 16px;
+            }
         }
     </style>
 
-    <!-- JavaScript Files -->
+    <!-- JavaScript للتمرير السلس -->
+    <script>
+        // إضافة سلاسة التمرير عند النقر على السهم
+        document.querySelectorAll('.scroll-link').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
     <script src="main.js"></script>
 </body>
 </html>
