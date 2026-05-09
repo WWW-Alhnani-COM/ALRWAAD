@@ -30,7 +30,22 @@
   gtag('config', 'AW-18151773230');
 </script>
 
-
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18151773230/RD07CJvtvaocEK6ouM9D',
+      'value': 1.0,
+      'currency': 'USD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
 
 
 
@@ -115,7 +130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <li><a href="map.html" title="خريطة الموقع">خريطة الموقع</a></li>
             <li><a href="countries.html" title="دول الاستقدام المتاحة">دول الاستقدام</a></li>
             <li><a href="recruitment-request.html" title="طلب الاستقدام">طلب الاستقدام</a></li>
-            <li><a href="https://api.whatsapp.com/send?phone=966571688955" target="_blank" title="تواصل معنا عبر واتساب">تواصل معنا</a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=966571688955" onclick="return gtag_report_conversion('https://api.whatsapp.com/send?phone=966571688955');" target="_blank" title="تواصل معنا عبر واتساب">تواصل معنا</a></li>
         </ul>
     </nav>
 
@@ -132,7 +147,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 اتصل بنا اليوم للحصول على أفضل <strong>عروض الاستقدام في الرياض</strong> وجميع مدن المملكة.</p>
 
             <div class="cta-buttons">
-                <a href="https://api.whatsapp.com/send?phone=966571688955" class="btn-whatsapp" target="_blank">
+                <a href="https://api.whatsapp.com/send?phone=966571688955" onclick="return gtag_report_conversion('https://api.whatsapp.com/send?phone=966571688955');" class="btn-whatsapp" target="_blank">
                     <i class="fab fa-whatsapp"></i> تواصل معنا الآن
                 </a>
                 <a href="map.html" class="btn-outline" aria-label="عرض خريطة الموقع">
@@ -182,7 +197,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
 
-                <a href="https://api.whatsapp.com/send?phone=966571688955" target="_blank" class="about-cta">
+                <a href="https://api.whatsapp.com/send?phone=966571688955" onclick="return gtag_report_conversion('https://api.whatsapp.com/send?phone=966571688955');" target="_blank" class="about-cta">
                     <span>تحدث معنا الآن</span>
                     <i class="fas fa-arrow-left"></i>
                 </a>
