@@ -20,6 +20,14 @@
 }
 </script>
 <head>
+    <!-- في <head> - هذا هو التحسين الصحيح للخطوط -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap">
+</noscript>
     
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +36,8 @@
 <title>أعمال الرواد للاستقدام | أفضل مكتب استقدام مرخص من مساند</title><!-- SEO Description -->
 <meta name="description" content="أعمال الرواد للاستقدام - مكتب استقدام مرخص من مساند بالسعودية. نوفر عاملات منزلية، سائقين، ممرضات من الفلبين، إندونيسيا، كينيا. استقدام سريع وضمان شامل."><!-- Keywords -->
 <meta name="keywords" content="استقدام, عاملات منزلية, خادمات, استقدام السعودية, مكتب استقدام, عمالة منزلية,مكتب أعمال الرواد للأستقدام, أعمال الرواد, اعمال الرواد للاستقدام, مكاتب استقدام مرخصه من منصه مساند, مكاتب استقدام مرخصه, منصه مساند, مساند">
-
+<!-- تحميل صورة الخلفية بأولوية عالية -->
+<link rel="preload" as="image" href="a.png" fetchpriority="high">
 <!-- Canonical -->
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -83,7 +92,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">
-            <img src="logoo.png" alt="شعار شركة أعمال الرواد للاستقدام في السعودية" loading="lazy" class="logo-image">
+            <img src="logoo.png" alt="شعار شركة أعمال الرواد للاستقدام في السعودية" fetchpriority="high" class="logo-image">
             <a href="index.html" style="color: inherit; text-decoration: none;">
                 أعمال الرواد<span> للاستقدام </span>
             </a>
@@ -379,9 +388,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- CSS الشامل -->
     <style>
+        /* تحسين LCP - تحميل صورة الخلفية بأولوية عالية */
+.hero-section {
+    background-image: url('a.png');
+    background-size: cover;
+    background-position: center 30%;
+    background-repeat: no-repeat;
+    /* إضافة أولوية عالية */
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+}
+        /* منع إعادة حساب العناصر */
+img, video, .why-image {
+    content-visibility: auto;
+}
         /* ========== إضافة خطوط مميزة للصفحة بالكامل ========== */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap');
-
+/* ========== تعريفات الخطوط مع font-display: swap ========== */
+@font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/cairo/v28/SLXGc1nY6HkangImlWU.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/cairo/v28/SLXGc1nY6HkangvmlWU.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/tajawal/v10/Iurf6YBj_oCad4k1l4KkLg.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'Tajawal';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/tajawal/v10/Iurf6YBj_oCad4k1l4GkLw.woff2') format('woff2');
+}
 body, html {
     font-family: 'Tajawal', sans-serif;
 }
