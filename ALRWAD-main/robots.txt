@@ -1,0 +1,13 @@
+# Robots.txt for https://alrwad.onrender.com/
+# Designed for Al-Rwaad Recruitment Office
+
+User-agent: *
+Allow: /
+
+# Disallow paths that don't need to be indexed (common for security and noise reduction)
+Disallow: /private/
+Disallow: /config/
+Disallow: /admin/
+
+# Link to your sitemap (ensure you create this later)
+Sitemap: https://alrwad.onrender.com/sitemap.xml
