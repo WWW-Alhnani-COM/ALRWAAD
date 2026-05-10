@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta http-equiv="Content-Security-Policy" content="
+ <meta http-equiv="Content-Security-Policy" content="
     script-src-elem 'self' 'unsafe-inline' 
         https://www.googletagmanager.com 
         https://www.google-analytics.com 
         https://*.googleadservices.com 
         https://*.google.com 
+        https://googleads.g.doubleclick.net 
         https://cdnjs.cloudflare.com 
         https://fonts.googleapis.com 
         https://fonts.gstatic.com;
-    img-src 'self' https://*.google.com https://*.googleadservices.com data:;
-    connect-src 'self' https://*.google.com https://*.googleadservices.com https://*.analytics.google.com;
+    img-src 'self' data: 
+        https://www.googletagmanager.com 
+        https://*.google.com 
+        https://*.googleadservices.com 
+        https://googleads.g.doubleclick.net;
+    connect-src 'self' 
+        https://*.google.com 
+        https://*.googleadservices.com 
+        https://googleads.g.doubleclick.net 
+        https://*.analytics.google.com 
+        https://www.googletagmanager.com;
     default-src 'self';
 ">
     <!-- Google tag (gtag.js) - مرة واحدة فقط -->
