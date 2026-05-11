@@ -518,625 +518,994 @@
 
     <!-- CSS الشامل -->
     <style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /* ========== إضافة خطوط مميزة للصفحة بالكامل ========== */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-body, html {
-    font-family: 'Tajawal', sans-serif;
-}
-
-h1, h2, h3, h4, .navbar .logo, .hero-content h1, .about-title, .why-title, .steps-title {
-    font-family: 'Cairo', sans-serif;
-}
-
-.stat-number, .step-number-circle span, .highlight {
-    font-family: 'Cairo', sans-serif;
-    font-weight: 800;
-}
-
-.about-cta, .btn-whatsapp, .btn-outline {
-    font-family: 'Cairo', sans-serif;
-    font-weight: 600;
-}
-        /* ========== تخصيص قسم الهيرو مع السهم ========== */
-        .hero-section {
-            min-height: 85vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            background-image: url('a.png');
-            background-size: cover;
-            background-position: center 30%;
-            background-repeat: no-repeat;
-        }
-
-        .hero-section .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.65);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            padding: 40px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-content h1 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            color: white;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #f0f0f0;
-        }
-
-        /* ========== زر السهم المتجه للأسفل ========== */
-        .scroll-down {
-            position: absolute;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            cursor: pointer;
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-down a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(5px);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .scroll-down a i {
-            font-size: 20px;
-        }
-
-        .scroll-down a:hover {
-            background: #3b9bc7;
-            transform: scale(1.1);
-            border-color: #2b7394;
-        }
-
-        /* حركة النبض للسهم */
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateX(-50%) translateY(0);
-            }
-            40% {
-                transform: translateX(-50%) translateY(-15px);
-            }
-            60% {
-                transform: translateX(-50%) translateY(-8px);
-            }
-        }
-
-      /* ========== قسم من نحن - نسخة موسطة ========== */
-.about-modern {
-    padding: 80px 20px;
-    background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
-    direction: rtl;
-    text-align: center;
-}
-
-.about-modern-grid {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.about-content-side {
-    text-align: center;
-}
-
-.about-tag {
-    display: inline-block;
-    font-size: 1rem;
-    color: #3b9bc7;
-    font-weight: 500;
-    letter-spacing: 1px;
-    margin-bottom: 15px;
-}
-
-.about-title {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: #1a2a4f;
-    margin-bottom: 20px;
-}
-
-.title-highlight {
-    color: #3b9bc7;
-}
-
-.about-lead {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.about-stats-row {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 30px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.stat-block {
-    text-align: center;
-}
-
-.stat-number {
-    display: block;
-    font-size: 2rem;
-    font-weight: 800;
-    color: #3b9bc7;
-}
-
-.stat-label {
-    font-size: 0.85rem;
-    color: #666;
-}
-
-.about-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #1a2a4f;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    margin: 0 auto;
-}
-
-.about-cta:hover {
-    background: #3b9bc7;
-    transform: translateX(-5px);
-}
-
-.about-visual-side {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-}
-
-.visual-card {
-    background: white;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    display: inline-block;
-}
-
-.visual-logo {
-    max-width: 200px;
-    margin-bottom: 20px;
-}
-
-.visual-badge {
-    background: #1a2a4f;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 30px;
-    display: inline-block;
-    font-size: 0.85rem;
-}
-        /* ========== قسم لماذا تختارنا ========== */
-        .why-choose-us {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
-            direction: rtl;
-        }
-
-        .why-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .why-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .why-tag {
-            display: inline-block;
-            font-size: 1rem;
-            color: #3b9bc7;
-            font-weight: 500;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-        }
-
-        .why-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1a2a4f;
-            margin-bottom: 15px;
-        }
-
-        .why-subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .why-card {
-            background: white;
-            padding: 35px 25px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
-        }
-
-        .why-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-color: #3b9bc7;
-        }
-
-.why-image {
-    width: 150px;
-    height: 150px;
-    background: transparent;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    padding: 0;
-}
-.why-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-        .why-card:hover .why-image img {
-            transform: scale(1.1);
-        }
-
-        .why-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1a2a4f;
-            margin-bottom: 12px;
-        }
-
-        .why-card p {
-            font-size: 0.95rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .why-note {
-            text-align: center;
-            padding: 20px;
-            background: #1a2a4f;
-            border-radius: 50px;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .why-note i {
-            font-size: 20px;
-            color: #3b9bc7;
-        }
-
-        /* ========== قسم خطوات الاستقدام ========== */
-        .steps-section {
-            padding: 80px 20px;
-            background: #f0f4f8;
-            direction: rtl;
-        }
-
-        .steps-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .steps-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .steps-tag {
-            display: inline-block;
-            font-size: 1rem;
-            color: #3b9bc7;
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .steps-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1a2a4f;
-            margin-bottom: 15px;
-        }
-
-        .steps-subtitle {
-            font-size: 1rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .step-card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .step-number-circle {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #3b9bc7, #86e66e);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-        }
-
-        .step-number-circle span {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: #1a2a4f;
-        }
-
-        .step-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: #1a2a4f;
-        }
-
-        .step-content p {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .steps-video-preview {
-            text-align: center;
-        }
-
-        .video-placeholder {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: white ;
-            color: #1a2a4f ;
-            padding: 12px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .video-placeholder i {
-            font-size: 20px;
-            color: #c7a23b;
-        }
-
-        /* ========== الفوتر ========== */
-        .footer {
-            background: #0f1a2e;
-            color: white;
-            padding: 50px 20px 20px;
-            direction: rtl;
-        }
-
-        .footer-logos-header {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .logo-item img {
-            height: 50px;
-            object-fit: contain;
-        }
-
-        .footer-divider {
-            border-color: rgba(255,255,255,0.1);
-            margin-bottom: 40px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-section ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-section ul li a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-section ul li a:hover {
-            color: #c7a23b;
-        }
-
-        .footer-section p {
-            margin-bottom: 10px;
-            color: #ccc;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #888;
-        }
-
-        /* ========== استجابة للشاشات الصغيرة ========== */
-        @media (max-width: 768px) {
+    /* ========== إضافة خطوط مميزة للصفحة بالكامل ========== */
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap');
+
+    /* ========== الأساسيات ========== */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    body, html {
+        font-family: 'Tajawal', sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .navbar .logo, .hero-content h1, .about-title, .why-title, .steps-title {
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .stat-number, .step-number-circle span, .highlight {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 800;
+    }
+
+    .about-cta, .btn-whatsapp, .btn-outline {
+        font-family: 'Cairo', sans-serif;
+        font-weight: 600;
+    }
+
+    /* ========== تخصيص قسم الهيرو مع السهم - متجاوب بالكامل ========== */
     .hero-section {
-        min-height: 70vh;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        background-image: url('a.png');
+        background-size: cover;
+        background-position: center 30%;
+        background-repeat: no-repeat;
+        overflow: hidden;
     }
+
+    .hero-section .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.75) 0%,
+            rgba(0, 0, 0, 0.65) 50%,
+            rgba(0, 0, 0, 0.75) 100%
+        );
+    }
+
     .hero-content {
-        padding: 30px 15px;
+        position: relative;
+        z-index: 1;
+        padding: 80px 20px 100px;
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
     }
+
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: clamp(1.6rem, 4vw, 3.2rem);
+        font-weight: 800;
+        margin-bottom: 20px;
+        color: white;
+        line-height: 1.4;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     }
+
+    .hero-content .highlight {
+        color: #3b9bc7;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
     .hero-content p {
+        font-size: clamp(0.95rem, 1.5vw, 1.2rem);
+        margin-bottom: 35px;
+        color: #f0f0f0;
+        line-height: 1.8;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* ========== أزرار CTA ========== */
+    .cta-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btn-whatsapp,
+    .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 28px;
+        font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+        font-weight: 600;
+        border-radius: 50px;
+        text-decoration: none;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        white-space: nowrap;
+        min-width: 160px;
+        text-align: center;
+    }
+
+    .btn-whatsapp {
+        background: linear-gradient(135deg, #25D366, #128C7E);
+        color: white;
+        border: 2px solid #25D366;
+        box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-whatsapp:hover {
+        background: #128C7E;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+
+    .btn-whatsapp i {
+        font-size: 1.2rem;
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.6);
+    }
+
+    .btn-outline:hover {
+        background: white;
+        color: #1a2a4f;
+        border-color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-outline i {
         font-size: 1rem;
     }
-    .about-modern-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .about-title, .why-title, .steps-title {
-        font-size: 1.8rem;
-    }
-    .why-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .why-card {
-        padding: 25px 20px;
-    }
-    /* تم إزالة الأكواد الخاصة بـ .why-image و img */
+
+    /* ========== زر السهم المتجه للأسفل ========== */
     .scroll-down {
-        bottom: 15px;
+        position: absolute;
+        bottom: clamp(20px, 3vh, 30px);
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        cursor: pointer;
+        animation: bounce 2s infinite;
     }
+
     .scroll-down a {
-        width: 35px;
-        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: clamp(40px, 6vw, 50px);
+        height: clamp(40px, 6vw, 50px);
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.3);
     }
-    .scroll-down a i {
-        font-size: 16px;
+
+    .scroll-down a img {
+        width: 24px;
+        height: 24px;
+        filter: brightness(0) invert(1);
     }
-}
- .why-image {
+
+    .scroll-down a:hover {
+        background: #3b9bc7;
+        transform: scale(1.15);
+        border-color: #3b9bc7;
+        box-shadow: 0 0 20px rgba(59, 155, 199, 0.5);
+    }
+
+    /* حركة النبض للسهم */
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translateX(-50%) translateY(0);
+        }
+        40% {
+            transform: translateX(-50%) translateY(-15px);
+        }
+        60% {
+            transform: translateX(-50%) translateY(-8px);
+        }
+    }
+
+    /* ========== أزرار التواصل في باقي الصفحة ========== */
+    .about-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #1a2a4f;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 0 auto;
+        font-family: 'Cairo', sans-serif;
+        font-weight: 600;
+    }
+
+    .about-cta:hover {
+        background: #3b9bc7;
+        transform: translateX(-5px);
+    }
+
+    /* ========== قسم من نحن ========== */
+    .about-modern {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+        direction: rtl;
+        text-align: center;
+    }
+
+    .about-modern-grid {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .about-content-side {
+        text-align: center;
+    }
+
+    .about-tag {
+        display: inline-block;
+        font-size: 1rem;
+        color: #3b9bc7;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .about-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #1a2a4f;
+        margin-bottom: 20px;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .title-highlight {
+        color: #3b9bc7;
+    }
+
+    .about-lead {
+        font-size: 1rem;
+        color: #555;
+        line-height: 1.8;
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-stats-row {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .stat-block {
+        text-align: center;
+    }
+
+    .stat-number {
+        display: block;
+        font-size: 2rem;
+        font-weight: 800;
+        color: #3b9bc7;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+        color: #666;
+    }
+
+    .about-visual-side {
+        display: flex;
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .visual-card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        display: inline-block;
+    }
+
+    .visual-logo {
+        max-width: 200px;
+        margin-bottom: 20px;
+    }
+
+    .visual-badge {
+        background: #1a2a4f;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 30px;
+        display: inline-block;
+        font-size: 0.85rem;
+    }
+
+    .visual-dot-pattern {
+        display: none;
+    }
+
+    /* ========== قسم لماذا تختارنا ========== */
+    .why-choose-us {
+        padding: 80px 20px;
+        background: linear-gradient(135deg, #f8f9fc 0%, #ffffff 100%);
+        direction: rtl;
+    }
+
+    .why-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .why-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .why-tag {
+        display: inline-block;
+        font-size: 1rem;
+        color: #3b9bc7;
+        font-weight: 500;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .why-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #1a2a4f;
+        margin-bottom: 15px;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .why-subtitle {
+        font-size: 1.1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .why-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .why-card {
+        background: white;
+        padding: 35px 25px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid #eee;
+    }
+
+    .why-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        border-color: #3b9bc7;
+    }
+
+    .why-image {
         width: 150px;
         height: 150px;
         background: transparent;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
         padding: 0;
     }
-              .why-image img {
+
+    .why-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 50%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
+    .why-card:hover .why-image img {
+        transform: scale(1.1);
+    }
 
-    </style>
+    .why-card h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #1a2a4f;
+        margin-bottom: 12px;
+    }
 
+    .why-card p {
+        font-size: 0.95rem;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .why-note {
+        text-align: center;
+        padding: 20px;
+        background: #1a2a4f;
+        border-radius: 50px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .why-note i {
+        font-size: 20px;
+        color: #3b9bc7;
+    }
+
+    /* ========== قسم خطوات الاستقدام ========== */
+    .steps-section {
+        padding: 80px 20px;
+        background: #f0f4f8;
+        direction: rtl;
+    }
+
+    .steps-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .steps-header {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .steps-tag {
+        display: inline-block;
+        font-size: 1rem;
+        color: #3b9bc7;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    .steps-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #1a2a4f;
+        margin-bottom: 15px;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .steps-subtitle {
+        font-size: 1rem;
+        color: #666;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    .step-card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .step-number-circle {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #3b9bc7, #86e66e);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+    }
+
+    .step-number-circle span {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #1a2a4f;
+        font-family: 'Cairo', sans-serif;
+    }
+
+    .step-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        color: #1a2a4f;
+    }
+
+    .step-content p {
+        font-size: 0.9rem;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .steps-video-preview {
+        text-align: center;
+    }
+
+    .video-placeholder {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: white;
+        color: #1a2a4f;
+        padding: 12px 25px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .video-placeholder i {
+        font-size: 20px;
+        color: #c7a23b;
+    }
+
+    /* ========== الفوتر ========== */
+    .footer {
+        background: #0f1a2e;
+        color: white;
+        padding: 50px 20px 20px;
+        direction: rtl;
+    }
+
+    .footer-logos-header {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+    }
+
+    .logo-item img {
+        height: 50px;
+        object-fit: contain;
+    }
+
+    .footer-divider {
+        border-color: rgba(255,255,255,0.1);
+        margin-bottom: 40px;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-section ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-section ul li a:hover {
+        color: #c7a23b;
+    }
+
+    .footer-section p {
+        margin-bottom: 10px;
+        color: #ccc;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        color: #888;
+    }
+
+    /* ==========================================
+       ميديا كويريز لجميع أحجام الشاشات
+       ========================================== */
+
+    /* شاشات كبيرة جداً (أكثر من 1400px) */
+    @media (min-width: 1400px) {
+        .hero-content {
+            max-width: 1000px;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+        }
+    }
+
+    /* شاشات متوسطة كبيرة (1200px - 1399px) */
+    @media (min-width: 1200px) and (max-width: 1399px) {
+        .hero-content {
+            max-width: 900px;
+        }
+    }
+
+    /* شاشات متوسطة (992px - 1199px) */
+    @media (min-width: 992px) and (max-width: 1199px) {
+        .hero-content {
+            max-width: 800px;
+            padding: 60px 20px 90px;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.6rem;
+        }
+    }
+
+    /* تابلت أفقي (768px - 991px) */
+    @media (min-width: 768px) and (max-width: 991px) {
+        .hero-section {
+            min-height: 70vh;
+            min-height: 70dvh;
+        }
+        
+        .hero-content {
+            padding: 50px 25px 80px;
+        }
+        
+        .hero-content h1 {
+            font-size: 2.2rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.05rem;
+        }
+        
+        .btn-whatsapp,
+        .btn-outline {
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            min-width: 140px;
+        }
+        
+        .about-title, .why-title, .steps-title {
+            font-size: 2rem;
+        }
+    }
+
+    /* تابلت عمودي (576px - 767px) */
+    @media (min-width: 576px) and (max-width: 767px) {
+        .hero-section {
+            min-height: 65vh;
+            min-height: 65dvh;
+        }
+        
+        .hero-content {
+            padding: 40px 20px 70px;
+        }
+        
+        .hero-content h1 {
+            font-size: 1.9rem;
+        }
+        
+        .hero-content p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+        
+        .btn-whatsapp,
+        .btn-outline {
+            width: 100%;
+            max-width: 300px;
+            padding: 12px 20px;
+            font-size: 0.95rem;
+        }
+        
+        .about-title, .why-title, .steps-title {
+            font-size: 1.9rem;
+        }
+        
+        .why-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .about-modern-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+    }
+
+    /* جوال كبير (480px - 575px) */
+    @media (min-width: 480px) and (max-width: 575px) {
+        .hero-section {
+            min-height: 60vh;
+            min-height: 60dvh;
+        }
+        
+        .hero-content {
+            padding: 35px 15px 65px;
+        }
+        
+        .hero-content h1 {
+            font-size: 1.7rem;
+        }
+        
+        .hero-content p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .btn-whatsapp,
+        .btn-outline {
+            width: 100%;
+            max-width: 280px;
+            padding: 12px 18px;
+            font-size: 0.9rem;
+        }
+        
+        .scroll-down {
+            bottom: 15px;
+        }
+        
+        .scroll-down a {
+            width: 38px;
+            height: 38px;
+        }
+        
+        .about-title, .why-title, .steps-title {
+            font-size: 1.7rem;
+        }
+        
+        .why-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .why-card {
+            padding: 25px 20px;
+        }
+        
+        .about-modern-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .steps-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+    }
+
+    /* جوال صغير (أقل من 479px) */
+    @media (max-width: 479px) {
+        .hero-section {
+            min-height: 55vh;
+            min-height: 55dvh;
+        }
+        
+        .hero-content {
+            padding: 30px 12px 60px;
+        }
+        
+        .hero-content h1 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero-content p {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .btn-whatsapp,
+        .btn-outline {
+            width: 100%;
+            max-width: 260px;
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            min-width: unset;
+        }
+        
+        .scroll-down {
+            bottom: 10px;
+        }
+        
+        .scroll-down a {
+            width: 35px;
+            height: 35px;
+        }
+        
+        .scroll-down a img {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .about-title, .why-title, .steps-title {
+            font-size: 1.5rem;
+        }
+        
+        .about-lead {
+            font-size: 0.9rem;
+        }
+        
+        .why-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .why-card {
+            padding: 20px 15px;
+        }
+        
+        .why-image {
+            width: 120px;
+            height: 120px;
+        }
+        
+        .about-modern-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .steps-grid {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+        
+        .about-stats-row {
+            gap: 15px;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+        }
+        
+        .about-modern {
+            padding: 50px 15px;
+        }
+        
+        .why-choose-us {
+            padding: 50px 15px;
+        }
+        
+        .steps-section {
+            padding: 50px 15px;
+        }
+        
+        .footer {
+            padding: 30px 15px 15px;
+        }
+        
+        .footer-content {
+            gap: 25px;
+        }
+    }
+
+    /* شاشات صغيرة جداً (أقل من 360px) */
+    @media (max-width: 359px) {
+        .hero-content h1 {
+            font-size: 1.3rem;
+        }
+        
+        .hero-content p {
+            font-size: 0.8rem;
+        }
+        
+        .btn-whatsapp,
+        .btn-outline {
+            max-width: 240px;
+            padding: 10px 14px;
+            font-size: 0.8rem;
+        }
+    }
+
+    /* دعم التوجيه الأفقي للجوال */
+    @media (max-height: 500px) and (orientation: landscape) {
+        .hero-section {
+            min-height: auto;
+            padding: 60px 20px;
+        }
+        
+        .hero-content {
+            padding: 20px 15px 50px;
+        }
+        
+        .hero-content h1 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .hero-content p {
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+        }
+        
+        .scroll-down {
+            display: none;
+        }
+    }
+
+    /* تقليل الحركات للمستخدمين الذين يفضلون ذلك */
+    @media (prefers-reduced-motion: reduce) {
+        .scroll-down {
+            animation: none;
+        }
+        
+        .btn-whatsapp:hover,
+        .btn-outline:hover,
+        .scroll-down a:hover,
+        .why-card:hover,
+        .about-cta:hover {
+            transform: none;
+        }
+    }
+</style>
     <!-- JavaScript للتمرير السلس -->
     <script>
         // إضافة سلاسة التمرير عند النقر على السهم
